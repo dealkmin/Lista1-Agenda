@@ -7,6 +7,7 @@ public class Menu {
 		System.out.println("2 - Listar cliente");
 		System.out.println("3 - Editar cliente");
 		System.out.println("4 - Excluir cliente");
+		System.out.println("5 - Comprar Produtos");
 		System.out.println("0 - Sair");
 	}
 

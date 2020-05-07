@@ -74,6 +74,10 @@ public class Agenda {
 		}
 	}
 	
+	public void imprimirClientesPorGenero() {
+		
+	}
+	
 	public void editarClientes() {
 		imprimirNomeClientes();
 		if( !pessoas.isEmpty()) {
@@ -85,6 +89,48 @@ public class Agenda {
 					pessoa.editaPessoa();
 				}
 			}
+		}
+	}
+	
+	public void comprar() {
+		if(!pessoas.isEmpty()) {
+			int i;
+			System.out.println("PRODUTOS:");
+			for(i=0; i<this.produtos.length; i++) {
+				System.out.println("[" + i + "]" +produtos[i]);
+			}
+			
+			System.out.println("-----------------------------");
+			System.out.println("Digite o produto que deseja comprar:");
+			Controle controle = new Controle();
+			int produto = Integer.parseInt(controle.texto());
+			System.out.println("Insira a quantidade:");
+			controle = new Controle();
+			int qtd = Integer.parseInt(controle.texto());
+			
+			imprimirNomeClientes();
+			System.out.println("Selecione o cliente:");
+			controle = new Controle();
+			String cliente = controle.texto();
+			
+			for(Pessoa pessoa : pessoas) {
+				if(pessoa.getNome().equals(cliente)) {
+					pessoa.setQtdProdutos(produto , qtd);
+					System.out.println("Produto Comprado!");
+				}
+			}
+			System.out.println("Deseja continuar comprando? (S/N)");
+			controle = new Controle();
+			String op = controle.texto();
+			if(op.equals("S")) {
+				comprar();
+			}
+			else {
+				System.out.println("Compra Finalizada!");
+			}
+			
+		}else {
+			System.out.println("Nenhum cliente cadastrado!");
 		}
 	}
 

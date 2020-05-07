@@ -1,17 +1,21 @@
 package br.com.modelo;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import br.com.negocio.Controle;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa>, Serializable {
 
+	private static final long serialVersionUID = -7149883403427694910L;
 	private String nome;
 	private Date dataNascimento;
 	private String genero;
 	private Telefone telefone;
+	
+	private int[] qtdProdutos = new int[6];
 	
 	SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
 	
@@ -147,6 +151,20 @@ public class Pessoa {
 
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
+	}
+
+	@Override
+	public int compareTo(Pessoa arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int[] getQtdProdutos() {
+		return qtdProdutos;
+	}
+
+	public void setQtdProdutos(int i, int qtd) {
+		this.qtdProdutos[i] = qtd;
 	}
 
 }

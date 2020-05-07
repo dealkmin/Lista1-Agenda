@@ -26,7 +26,9 @@ public class AgendaApplication {
 			case 3:
 				agenda.editarClientes();
 				break;
-				
+			case 5:
+				agenda.comprar();
+				break;
 				
 			}
 			
