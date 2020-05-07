@@ -19,6 +19,9 @@ public class AgendaApplication {
 			switch(op) {
 			case 1:
 				agenda.cadastraCliente();
+				break;
+			case 2:
+				agenda.imprimirNomeClientes();
 				
 			}
 			
