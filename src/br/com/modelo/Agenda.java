@@ -1,7 +1,5 @@
 package br.com.modelo;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -72,6 +70,20 @@ public class Agenda {
 		System.out.println("Clientes cadastrados:");
 		for (Pessoa pessoa : pessoas) {
 			System.out.println(pessoa.getNome());
+		}
+	}
+	
+	public void editarClientes() {
+		imprimirNomeClientes();
+		if( !pessoas.isEmpty()) {
+			System.out.println("Digite o nome do cliente que deseja editar:");
+			Controle controle = new Controle();
+			String nome = controle.texto();
+			for (Pessoa pessoa : pessoas) {
+				if(pessoa.getNome().equals(nome)) {
+					pessoa.editaPessoa();
+				}
+			}
 		}
 	}
 

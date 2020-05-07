@@ -22,6 +22,11 @@ public class AgendaApplication {
 				break;
 			case 2:
 				agenda.imprimirNomeClientes();
+				break;
+			case 3:
+				agenda.editarClientes();
+				break;
+				
 				
 			}
 			
