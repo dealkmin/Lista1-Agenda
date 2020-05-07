@@ -10,6 +10,7 @@ import br.com.negocio.Controle;
 public class Agenda {
 	
 	public ArrayList<Pessoa> pessoas =new ArrayList<Pessoa>();
+	private String[] produtos = {"Corte de cabelo","Pintura de cabelo","Manicure","Pedicure","Corte de barba","Shampoo Antiqueda"};
 
 	public void cadastraCliente() {
 		try {
