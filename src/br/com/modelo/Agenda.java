@@ -13,11 +13,11 @@ public class Agenda {
 	public void cadastraCliente() {
 		Controle controle = new Controle();
 
-		System.out.println("❤CADASTRO DE CLIENTE❤");
+		System.out.println("â�¤CADASTRO DE CLIENTEâ�¤");
 		System.out.println("Nome:");
 		String nome = controle.texto();
 
-		System.out.println("Selecione o Gênero:");
+		System.out.println("Selecione o GÃªnero:");
 		System.out.println("1- Feminino");
 		System.out.println("2- Masculino");
 		System.out.println("3- Outros");
@@ -40,7 +40,7 @@ public class Agenda {
 		System.out.println("Digite o DDD:");
 		controle = new Controle();
 		String ddd = controle.texto();
-		System.out.println("Digite o número de telefone:");
+		System.out.println("Digite o nÃºmero de telefone:");
 		controle = new Controle();
 		String numero = controle.texto();
 		Telefone telefone = new Telefone();
@@ -62,6 +62,20 @@ public class Agenda {
 		for (Pessoa pessoa : pessoas) {
 			System.out.println(pessoa.getNome());
 		}
+	}
+
+	// Imprimir os clientes
+	public void imprimirClientes() {
+			Collections.sort(pessoas);
+			for (Pessoa pessoa : pessoas) {
+				System.out.println(pessoa.toString());
+				System.out.println("Produtos Consumidos");
+				for(int i = 0; i < 6; ++i) {
+					System.out.println("*"+produtos[i] +" - Quantidade:"+ pessoa.getQtdProdutos(i));
+				}
+				System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
+			
+			}
 	}
 	
 	public void imprimirClientesPorGenero() {
