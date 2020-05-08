@@ -159,12 +159,13 @@ public class Pessoa implements Comparable<Pessoa>, Serializable {
 		return 0;
 	}
 
-	public int[] getQtdProdutos() {
-		return qtdProdutos;
+	public int getQtdProdutos(int i) {
+		return qtdProdutos[i];
 	}
 
 	public void setQtdProdutos(int i, int qtd) {
 		this.qtdProdutos[i] = qtd;
 	}
+	
 
 }

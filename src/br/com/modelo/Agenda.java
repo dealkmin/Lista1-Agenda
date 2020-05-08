@@ -63,6 +63,20 @@ public class Agenda {
 			System.out.println(pessoa.getNome());
 		}
 	}
+
+	// Imprimir os clientes
+	public void imprimirClientes() {
+			Collections.sort(pessoas);
+			for (Pessoa pessoa : pessoas) {
+				System.out.println(pessoa.toString());
+				System.out.println("Produtos Consumidos");
+				for(int i = 0; i < 6; ++i) {
+					System.out.println("*"+produtos[i] +" - Quantidade:"+ pessoa.getQtdProdutos(i));
+				}
+				System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
+			
+			}
+	}
 	
 	public void imprimirClientesPorGenero() {
 		
