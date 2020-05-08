@@ -13,11 +13,11 @@ public class Agenda {
 	public void cadastraCliente() {
 		Controle controle = new Controle();
 
-		System.out.println("❤CADASTRO DE CLIENTE❤");
+		System.out.println("â�¤CADASTRO DE CLIENTEâ�¤");
 		System.out.println("Nome:");
 		String nome = controle.texto();
 
-		System.out.println("Selecione o Gênero:");
+		System.out.println("Selecione o GÃªnero:");
 		System.out.println("1- Feminino");
 		System.out.println("2- Masculino");
 		System.out.println("3- Outros");
@@ -40,7 +40,7 @@ public class Agenda {
 		System.out.println("Digite o DDD:");
 		controle = new Controle();
 		String ddd = controle.texto();
-		System.out.println("Digite o número de telefone:");
+		System.out.println("Digite o nÃºmero de telefone:");
 		controle = new Controle();
 		String numero = controle.texto();
 		Telefone telefone = new Telefone();
@@ -81,7 +81,22 @@ public class Agenda {
 			}
 		}
 	}
-	
+	//Excluir Cliente
+		public void excluirCliente() {
+			if(!pessoas.isEmpty()) {
+				imprimirNomeClientes();
+				System.out.println("Digite o nome do cliente que deseja excluir:");
+				Controle controle = new Controle();
+				String nome = controle.texto();
+				for(Pessoa pessoa : pessoas) {
+					if(pessoa.getNome().equals(nome)) {
+						pessoas.remove(pessoa);
+						System.out.println(pessoa.getNome() + " Excluido com Sucesso. \n ");
+						return;
+				}
+			}
+		}
+	}
 	public void comprar() {
 		if(!pessoas.isEmpty()) {
 			int i;
