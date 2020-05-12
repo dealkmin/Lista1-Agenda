@@ -8,7 +8,7 @@ import br.com.negocio.Controle;
 public class AgendaApplication {
 
 	public static void main(String[] args) {
-		AsciiArt.printAsciiArt("Grupo World Beauty");
+		AsciiArt.printAsciiArt("Grupo Wolrd of Beauty");
 		Menu menu = new Menu();
 		Agenda agenda = new Agenda();
 		int op = 1000;
