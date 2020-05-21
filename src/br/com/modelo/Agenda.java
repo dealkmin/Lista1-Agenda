@@ -79,6 +79,14 @@ public class Agenda {
 	}
 	
 	public void imprimirClientesPorGenero() {
+		Collections.sort(pessoas);
+		System.out.println("Clientes do gênero feminino:");
+		for(Pessoa pessoa : pessoas) {
+			if(pessoa.getGenero().equals("Feminino")) {
+				
+			}
+		}
+		
 		
 	}
 	
