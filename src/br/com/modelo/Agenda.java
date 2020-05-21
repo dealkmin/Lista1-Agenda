@@ -9,7 +9,8 @@ public class Agenda {
 	
 	public ArrayList<Pessoa> pessoas =new ArrayList<Pessoa>();
 	private String[] produtos = {"Corte de cabelo","Pintura de cabelo","Manicure","Pedicure","Corte de barba","Shampoo Antiqueda"};
-
+	private static String FEMININO = "Feminino";
+	private static String MASCULINO = "Masculino";
 	public void cadastraCliente() {
 		Controle controle = new Controle();
 
@@ -20,7 +21,6 @@ public class Agenda {
 		System.out.println("Selecione o GÃªnero:");
 		System.out.println("1- Feminino");
 		System.out.println("2- Masculino");
-		System.out.println("3- Outros");
 		int op = 1000;
 		controle = new Controle();
 		op = controle.opcao();
@@ -32,9 +32,7 @@ public class Agenda {
 		case 2:
 			genero = "Masculino";
 			break;
-		case 3:
-			genero = "Outros";
-			break;
+
 		}
 
 		System.out.println("Digite o DDD:");
@@ -68,7 +66,7 @@ public class Agenda {
 	public void imprimirClientes() {
 			Collections.sort(pessoas);
 			for (Pessoa pessoa : pessoas) {
-				System.out.println(pessoa.toString());
+				System.out.println(pessoa.getNome());
 				System.out.println("Produtos Consumidos");
 				for(int i = 0; i < 6; ++i) {
 					System.out.println("*"+produtos[i] +" - Quantidade:"+ pessoa.getQtdProdutos(i));
@@ -77,19 +75,78 @@ public class Agenda {
 			
 			}
 	}
-	
+	//Imprimir clientes por gênero
 	public void imprimirClientesPorGenero() {
 		Collections.sort(pessoas);
 		System.out.println("Clientes do gênero feminino:");
 		for(Pessoa pessoa : pessoas) {
 			if(pessoa.getGenero().equals("Feminino")) {
-				
+				System.out.println(pessoa.getNome());
+				System.out.println("Produtos Consumidos");
+				for(int i = 0; i < 6; ++i) {
+					System.out.println("*"+produtos[i] +" - Quantidade"+ pessoa.getQtdProdutos(i));
+				}
+				System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~|\n");
 			}
+			
 		}
-		
-		
-	}
+		System.out.println("Clientes do gênero masculino:");
+		for (Pessoa pessoa : pessoas) {
+			if(pessoa.getGenero().equals("Masculino"))
+				System.out.println(pessoa.getNome());
+				System.out.println("Produtos Consumidos");
+				for(int i = 0; i < 6; ++i) {
+					System.out.println("*"+produtos[i] +" - Quantidade: "+ pessoa.getQtdProdutos(i));
+				}
+				System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~|\n");
+				}
+		}
 	
+		//Calcular a idade média geral
+		public void calcularIdadeMedia() {
+			int counter = 0;
+			int idades = 0;
+			for (Pessoa pessoa : pessoas) {
+				idades += pessoa.getIdade();
+				counter++;
+			}
+			int media = idades/counter;
+			System.out.println("Idade Média:" +media);
+		}
+		//Calcular a idade média por gênero
+		public void calcularIdadeMediaGenero() {
+			int counterf = 0;
+			int idadesf = 0;
+			int counterm = 0;
+			int idadesm = 0;
+			for (Pessoa pessoa : pessoas) {
+				if(FEMININO.equals(pessoa.getGenero())) {
+					idadesf += pessoa.getIdade();
+					counterf++;
+				}
+				
+				if(MASCULINO.equals(pessoa.getGenero())) {
+					idadesm += pessoa.getIdade();
+					counterf++;
+				}
+			}
+			int mediaf;
+			int mediam;
+			
+			if (counterf == 0) {
+				mediaf = 0;
+			}else {
+				mediaf = idadesf/counterf;	
+				}
+			if(counterm == 0) {
+				mediam = 0;
+			}else {
+				mediam = idadesm/counterm;
+			}
+			System.out.println("Idade média feminina: " +mediaf);
+			System.out.println("Idade média masculina: " + mediam);
+		}
+					
 	public void editarClientes() {
 		imprimirNomeClientes();
 		if( !pessoas.isEmpty()) {

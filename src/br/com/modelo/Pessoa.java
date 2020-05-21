@@ -3,7 +3,9 @@ package br.com.modelo;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import br.com.negocio.Controle;
 
@@ -167,5 +169,48 @@ public class Pessoa implements Comparable<Pessoa>, Serializable {
 		this.qtdProdutos[i] = qtd;
 	}
 	
-
+	@SuppressWarnings("deprecation")
+	public int getIdade() {
+		GregorianCalendar agora = new GregorianCalendar();
+		
+		//Data atual
+ 		int ano = 0, mes = 0, dia = 0;
+ 		
+ 		//Data de nascimento
+ 		int anoNasc = 0, mesNasc = 0, diaNasc = 0;
+ 		
+ 		//Idade
+ 		int idade = 0;
+ 		
+ 		if(dataNascimento != null){
+ 	 		
+ 			ano = agora.get(Calendar.YEAR);
+ 	 		mes = agora.get(Calendar.MONTH) + 1;
+ 	 		dia = agora.get(Calendar.DAY_OF_MONTH);
+ 	 		
+ 	 		anoNasc = dataNascimento.getYear() + 1900;
+ 	 		mesNasc = dataNascimento.getMonth() + 1;
+ 	 		diaNasc = dataNascimento.getDay();
+ 	 		
+ 	 		idade = ano - anoNasc;
+ 	 		
+ 	 		// Calculando diferencas de mes e dia.
+ 	 		if(mes < mesNasc) {
+ 	 			idade--;
+ 	 		} else {
+ 	 			if(dia < diaNasc) {
+ 	 				idade--;
+ 	 			}
+ 	 		}
+ 	 		
+ 	 	// Ultimo teste, idade "negativa".
+ 	 		if(idade < 0) {
+ 	 			idade = 0;
+ 	 		}
+ 	 		
+ 		}
+ 		
+ 		return idade;
+ 		
+	}
 }

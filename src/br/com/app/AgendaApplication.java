@@ -35,7 +35,12 @@ public class AgendaApplication {
 			case 6:
 				agenda.imprimirClientes();
 				break;
-				
+			case 7:
+				agenda.imprimirClientesPorGenero();
+			case 8:
+				agenda.calcularIdadeMedia();
+			case 9:
+				agenda.calcularIdadeMediaGenero();
 			}
 			
 		}
