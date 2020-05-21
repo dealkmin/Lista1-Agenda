@@ -120,33 +120,34 @@ public class Agenda {
 			int counterm = 0;
 			int idadesm = 0;
 			for (Pessoa pessoa : pessoas) {
-				if(FEMININO.equals(pessoa.getGenero())) {
+				if("FEMININO".equals(pessoa.getGenero())) {
 					idadesf += pessoa.getIdade();
 					counterf++;
+					
 				}
-				
-				if(MASCULINO.equals(pessoa.getGenero())) {
+				if("MASCULINO".equals(pessoa.getGenero())) {
 					idadesm += pessoa.getIdade();
-					counterf++;
+					counterm++;
 				}
 			}
 			int mediaf;
 			int mediam;
 			
-			if (counterf == 0) {
+			if(counterf == 0) {
 				mediaf = 0;
 			}else {
-				mediaf = idadesf/counterf;	
-				}
+				mediaf = idadesf/counterf;
+			}
+			
 			if(counterm == 0) {
 				mediam = 0;
 			}else {
 				mediam = idadesm/counterm;
 			}
-			System.out.println("Idade média feminina: " +mediaf);
-			System.out.println("Idade média masculina: " + mediam);
+			System.out.println("Idade média feminina: "+ mediaf);
+			System.out.println("Idade média masculina: "+ mediam);
 		}
-					
+		
 	public void editarClientes() {
 		imprimirNomeClientes();
 		if( !pessoas.isEmpty()) {
